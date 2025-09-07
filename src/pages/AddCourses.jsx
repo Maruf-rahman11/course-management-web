@@ -3,6 +3,14 @@ import React from 'react';
 import add from '../assets/Login.json'
 
 const AddCourses = () => {
+    const handleAddCourse = (e)=>{
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const newCourse = Object.fromEntries(formData.entries())
+        console.log(newCourse);
+
+    }
     return (
         <div>
              <div className='mt-20 mb-20 p-4 mx-auto w-11/12 '>
@@ -10,7 +18,7 @@ const AddCourses = () => {
                 <h1 className="lg:text-6xl pb-3 text-4xl">Add Your Course</h1>
             </div>
             <div className=' '>
-                <form onSubmit>
+                <form onSubmit={handleAddCourse}>
                     <div className='grid lg:grid-cols-2 grid-cols-1  '>
                         <div className='my-auto'>
                     <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
