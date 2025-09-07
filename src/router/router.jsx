@@ -5,6 +5,7 @@ import Home from '../home/Home';
 import AddCourses from '../Components/AddCourses';
 import Register from '../pages/Register';
 import AuthLayout from '../layouts/AuthLayout';
+import Login from '../pages/Login';
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         {
             path : '/auth/register',
             Component : Register
+        },
+        {
+          path : '/auth/login',
+          Component : Login,
         }
     ]
     }

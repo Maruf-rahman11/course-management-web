@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Contexts/AuthContext';
 
 const Navbar = () => {
- 
+
+    const{user, signOutUser} = use(AuthContext)
+
+    const handleSignOut = () =>{
+      signOutUser()
+      .then(()=>{
+        console.log("signed out")
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+    }
+
+
+
+
+
+
     return (
     <div>
       <div className="navbar fixed top-0 left-0 z-50  bg-[#4e5dfe] shadow-sm">
@@ -14,9 +32,9 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <NavLink><li>Home</li></NavLink>
-        <NavLink><li>Courses</li></NavLink>
-        <NavLink><li>Add courses</li></NavLink>
+        <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
+        <NavLink><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
+        <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
       </ul>
     </div>
     <img className='w-[170px]' src="https://i.ibb.co.com/PvShLZc8/logo.png" alt="" srcset="" />
@@ -29,8 +47,17 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex gap-2">
-    <Link to={'/auth/register'}><button className="btn">Sign in</button></Link>
-    <button className="btn">Log out</button>
+    {
+      user ? 
+      <Link><button onClick={handleSignOut} className="btn">Sign out</button></Link>
+
+      :
+      <div>
+            <Link to={'/auth/register'}><button className="btn">Sign up</button></Link>
+            <Link to={'/auth/login'}><button className="btn">Log in</button></Link>
+      </div>
+    }
+
   </div>
 </div>
     </div>

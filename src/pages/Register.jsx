@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../Contexts/AuthContext';
 
 const Register = () => {
-    const handleRegister=()=>{
+    const { loading,createUser } = use(AuthContext)
+console.log(loading)
+
+    const handleRegister=(e)=>{
+         e.preventDefault();
+         const form = e.target
+         const name = form.name.value
+        //  const photo = form.photo.value
+         const email = form.email.value
+         const password = form.password.value
+         if(name.length < 3){
+            'Name should be more than 5 characters '
+            return;
+           }
+           createUser(email,password)
+           .then(result=>{
+            console.log(result)
+           })
+           .catch(error=>{
+            console.log(error)
+           })
 
     }
     return (
