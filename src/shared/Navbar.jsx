@@ -23,13 +23,13 @@ const Navbar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu gap-4 menu-horizontal px-1">
-        <NavLink><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
+        <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
         <NavLink><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
         <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
     </ul>
   </div>
   <div className="navbar-end flex gap-2">
-    <button className="btn">Sign in</button>
+    <Link to={'/auth/register'}><button className="btn">Sign in</button></Link>
     <button className="btn">Log out</button>
   </div>
 </div>
