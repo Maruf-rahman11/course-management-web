@@ -3,14 +3,14 @@ import { Link } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 
 const Register = () => {
-    const { loading,createUser } = use(AuthContext)
+    const { loading,createUser,setUser, updateUser } = use(AuthContext)
 console.log(loading)
 
     const handleRegister=(e)=>{
          e.preventDefault();
          const form = e.target
          const name = form.name.value
-        //  const photo = form.photo.value
+         const photo = form.photo.value
          const email = form.email.value
          const password = form.password.value
          if(name.length < 3){
@@ -19,7 +19,9 @@ console.log(loading)
            }
            createUser(email,password)
            .then(result=>{
-            console.log(result)
+            const user = result.user
+            updateUser({ displayName : name,photoURL : photo, })
+            setUser({...user,displayName : name,photoURL : photo })
            })
            .catch(error=>{
             console.log(error)

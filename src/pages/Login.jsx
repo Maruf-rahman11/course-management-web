@@ -3,8 +3,15 @@ import { Link } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 
 const Login = () => {
-    const{signInUser} = use(AuthContext)
+    const{signInUser, GoogleSignIn} = use(AuthContext)
     const handleGoogleSignIn = () =>{
+        GoogleSignIn()
+        .then(result=>{
+            console.log(result)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
 
     }
     const handleLogin=(e)=>{

@@ -5,6 +5,7 @@ import { AuthContext } from '../Contexts/AuthContext';
 const Navbar = () => {
 
     const{user, signOutUser} = use(AuthContext)
+    console.log(user)
 
     const handleSignOut = () =>{
       signOutUser()
@@ -49,10 +50,14 @@ const Navbar = () => {
   <div className="navbar-end flex gap-2">
     {
       user ? 
-      <Link><button onClick={handleSignOut} className="btn">Sign out</button></Link>
+      <div className='flex gap-2'>
+        <img  className='w-[40px] rounded-full' src={user.photoURL} alt="" srcset="" />
+        <Link><button onClick={handleSignOut} className="btn">Sign out</button></Link>
+      </div>
+      
 
       :
-      <div>
+      <div className='flex gap-2'>
             <Link to={'/auth/register'}><button className="btn">Sign up</button></Link>
             <Link to={'/auth/login'}><button className="btn">Log in</button></Link>
       </div>
