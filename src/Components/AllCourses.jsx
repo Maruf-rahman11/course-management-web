@@ -1,9 +1,12 @@
-import React, { use } from 'react';
+import React from 'react';
 import { Link, useLoaderData } from 'react-router';
 import CourseCard from './CourseCard';
 
 const AllCourses = () => {
     const allCourses = useLoaderData();
+    // const sortedCourses = [...allCourses].sort((a, b) => 
+    //     new Date(b.createdAt) - new Date(a.createdAt)
+    //   );
     console.log(allCourses)
     return (
         <div className='mt-20 mb-20'>
@@ -23,6 +26,8 @@ const AllCourses = () => {
                 <th>Course Name</th>
                 <th>Duration</th>
                 <th>Course Fee </th>
+                <th>Added time </th>
+                <th>Available seats </th>
                 <th>Details </th>
                
                 <th></th>

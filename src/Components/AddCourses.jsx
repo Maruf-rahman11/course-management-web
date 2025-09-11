@@ -1,6 +1,7 @@
 import Lottie from 'lottie-react';
 import React from 'react';
 import add from '../assets/Login.json'
+import axios from 'axios';
 
 const AddCourses = () => {
     const handleAddCourse = (e)=>{
@@ -8,7 +9,21 @@ const AddCourses = () => {
         const form = e.target;
         const formData = new FormData(form);
         const newCourse = Object.fromEntries(formData.entries())
-        console.log(newCourse);
+        const createdAt=  new Date().toISOString()
+
+        const allData = {
+            ...newCourse,
+            createdAt
+        }
+        console.log(allData);
+        axios.post('http://localhost:5000/courses',allData)
+          .then(res=>{
+            console.log(res.data);
+          })
+          .catch(err=>{
+            console.log(err.data);
+          });
+        
 
     }
     return (
@@ -29,7 +44,15 @@ const AddCourses = () => {
                         <label className="label">Description</label>
                         <input type="text" name='description' className="input w-full" placeholder="Add description" />
                     </fieldset>
+                    <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
+                        <label className="label">Price</label>
+                        <input type="text" name='price' className="input w-full" placeholder="Add price" />
+                    </fieldset>
                    
+                    <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
+                        <label className="label">Available Seats</label>
+                        <input type="text" name='seats' className="input w-full" placeholder="Add available seats" />
+                    </fieldset>
                     <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
                         <label className="label">Duration</label>
                         <input type="text" name='duration' className="input w-full" placeholder="Add estimated course duration" />
