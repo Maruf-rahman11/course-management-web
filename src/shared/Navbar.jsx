@@ -33,9 +33,10 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
-        <NavLink><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
+          <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
+        <NavLink to={'/allCourses'}><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
         <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
+        <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My courses</li></NavLink>
       </ul>
     </div>
     <img className='w-[170px]' src="https://i.ibb.co.com/PvShLZc8/logo.png" alt="" srcset="" />
@@ -43,8 +44,9 @@ const Navbar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu gap-4 menu-horizontal px-1">
         <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
-        <NavLink><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
+        <NavLink to={'/allCourses'}><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
         <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
+        <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My courses</li></NavLink>
     </ul>
   </div>
   <div className="navbar-end flex gap-2">
