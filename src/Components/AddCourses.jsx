@@ -65,12 +65,12 @@ const AddCourses = () => {
                    
                 </div>
                   <div className='justify-center'>
-            <Lottie  className="w-full sm:w-[400px] md:w-[500px] lg:w-[550px] h-auto" animationData={add} loop={true} />;
+            <Lottie  className="w-full sm:w-[400px] md:w-[500px] lg:w-[550px] h-auto" animationData={add} loop={true} />
             </div>
                     </div>
                 
               
-            <input type="submit" className='btn text-white bg-[#4e5dfe] w-full' value="Add Course" />
+            <input type="submit" className='btn text-white bg-[#4e5dfe] mt-6 w-full' value="Add Course" />
             </form> 
             
             
