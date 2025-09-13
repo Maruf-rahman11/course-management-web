@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import CourseCard from './CourseCard';
+import { AuthContext } from '../Contexts/AuthContext';
 
 const AllCourses = () => {
+  const {loading} = use(AuthContext)
     const allCourses = useLoaderData();
-    // const sortedCourses = [...allCourses].sort((a, b) => 
-    //     new Date(b.createdAt) - new Date(a.createdAt)
-    //   );
     console.log(allCourses)
+    if(loading){
+      return <div className='min-h-screen flex justify-center items-center'>
+          <span className="loading loading-spinner loading-xl"></span>
+          </div>
+  }
     return (
         <div className='mt-20 mb-20'>
           <div>

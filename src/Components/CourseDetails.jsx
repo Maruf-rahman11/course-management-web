@@ -1,12 +1,31 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import axios from 'axios';
+import { myCoursesPromise } from '../API/applicantAPI';
 
 const CourseDetails = () => {
     const { user } = use(AuthContext)
+    const[myCourse,setMyCourse] = useState([])
+    const[loading,setLoading] = useState(true)
+    useEffect(()=>{
+      if (!user?.email) return;
+      const fetchMyCourses = async () => {
+      
+          const alldata = await myCoursesPromise(user.email)
+          const coursesId = alldata.map(course => course.course_id);
+
+          setMyCourse(coursesId)
+          setLoading(false);  
+          console.log(coursesId);
+      };
+    
+      fetchMyCourses();
+    },[])
+    
     const course = useLoaderData()
-    // console.log(user)
+    const isEnrolled = myCourse.includes(course._id);
+  
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US', {
@@ -28,11 +47,18 @@ const CourseDetails = () => {
         console.log(application)
         axios.post('http://localhost:5000/applicants', application)
         .then(res=>{
+          setMyCourse(prev => [...prev, course._id])
+
           console.log(res.data);
         })
         .catch(err=>{
           console.log(err.data);
         });
+      }
+      if(loading){
+        return <div className='min-h-screen flex justify-center items-center'>
+        <span className="loading loading-spinner loading-xl"></span>
+        </div>
       }
     return (
         <div>
@@ -51,8 +77,12 @@ const CourseDetails = () => {
     <p><span className='font-bold text-lg'>Available seats</span> :{course.seats}</p>
     <p><span className='font-bold text-lg'>Duration</span> :{course.duration} </p>
     <p><span className='font-bold text-lg'>Created on</span> :{formatDate(course.createdAt)} </p>
+    {
+      isEnrolled ? <button disabled onClick={handleEnrollment} className='btn mt-8 btn-primary border'>Already Enrolled</button>
+      :
+      <button onClick={handleEnrollment} className='btn mt-8 btn-primary border'>Enroll Now</button>
+    }
     
-    <Link to={`/courseDetails/${course._id}`}><button onClick={handleEnrollment} className='btn mt-8 btn-primary border'>Enroll Now</button></Link>
   </div>
 </div>
 
