@@ -8,6 +8,8 @@ import AuthLayout from '../layouts/AuthLayout';
 import Login from '../pages/Login';
 import AllCourses from '../Components/AllCourses';
 import CourseDetails from '../Components/CourseDetails';
+import MyCourses from '../Components/MyCourses';
+import PrivateRoute from '../Contexts/PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -31,6 +33,12 @@ const router = createBrowserRouter([
           path: '/courseDetails/:id',
           Component: CourseDetails,
           loader : ({params})=>fetch(`http://localhost:5000/courses/${params.id}`)
+        },
+        {
+          path : '/myCourses',
+          element:<PrivateRoute>
+            <MyCourses></MyCourses>
+          </PrivateRoute> ,
         }
       ]
     },

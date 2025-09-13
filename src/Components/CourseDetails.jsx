@@ -1,9 +1,12 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React, { use } from 'react';
+import { Link, useLoaderData } from 'react-router';
+import { AuthContext } from '../Contexts/AuthContext';
+import axios from 'axios';
 
 const CourseDetails = () => {
+    const { user } = use(AuthContext)
     const course = useLoaderData()
-    console.log(course)
+    // console.log(user)
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US', {
@@ -14,10 +17,27 @@ const CourseDetails = () => {
           minute: '2-digit'
         });
       };
+
+
+      const handleEnrollment = ()=>{
+        const application = {
+            course_id : course._id,
+            applicant : user.email,
+            applicantPhoto : user.photoURL
+        }
+        console.log(application)
+        axios.post('http://localhost:5000/applicants', application)
+        .then(res=>{
+          console.log(res.data);
+        })
+        .catch(err=>{
+          console.log(err.data);
+        });
+      }
     return (
         <div>
-            <div className='my-10'>
-    <div className="card lg:card-side bg-base-100 shadow-sm">
+            <div className='my-10 shadow-sm'>
+    <div className="card lg:card-side bg-base-100 ">
   <figure className='lg:w-[40%] p-8  '>
     <img className='rounded-2xl border '
       src={course.photoURL}
@@ -31,8 +51,13 @@ const CourseDetails = () => {
     <p><span className='font-bold text-lg'>Available seats</span> :{course.seats}</p>
     <p><span className='font-bold text-lg'>Duration</span> :{course.duration} </p>
     <p><span className='font-bold text-lg'>Created on</span> :{formatDate(course.createdAt)} </p>
+    
+    <Link to={`/courseDetails/${course._id}`}><button onClick={handleEnrollment} className='btn mt-8 btn-primary border'>Enroll Now</button></Link>
   </div>
 </div>
+
+
+
         </div>
         </div>
     );
