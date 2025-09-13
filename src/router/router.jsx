@@ -7,6 +7,7 @@ import Register from '../pages/Register';
 import AuthLayout from '../layouts/AuthLayout';
 import Login from '../pages/Login';
 import AllCourses from '../Components/AllCourses';
+import CourseDetails from '../Components/CourseDetails';
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
           path:'/allCourses',
           Component: AllCourses,
           loader: ()=>fetch("http://localhost:5000/courses"),
+        },
+        {
+          path: '/courseDetails/:id',
+          Component: CourseDetails,
+          loader : ({params})=>fetch(`http://localhost:5000/courses/${params.id}`)
         }
       ]
     },

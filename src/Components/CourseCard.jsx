@@ -45,7 +45,7 @@ const CourseCard = ({course,index}) => {
 {course.seats}
   <br />
 </td>
-<td><Link><button className='btn btn-primary'>View details</button></Link></td>
+<td><Link to={`/courseDetails/${course._id}`}><button className='btn btn-primary'>View details</button></Link></td>
 </tr>
       
     );
