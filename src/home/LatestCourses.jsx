@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
 const LatestCourses = () => {
 
@@ -28,8 +29,9 @@ const LatestCourses = () => {
                 <div className="card-body">
                   <h2 className="card-title">{course.courseName}</h2>
                   <p>{course.description}</p>
+                  <p>{course.seats}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Enroll now</button>
+                   <Link to={`/courseDetails/${course._id}`}><button className="btn btn-primary">Course Details</button></Link> 
                   </div>
                 </div>
               </div>)
