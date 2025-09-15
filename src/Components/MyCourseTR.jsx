@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const MyCourseTR = ({course,index}) => {
+  console.log(course.course_id)
     return (
         <tr className=''>
         <td>{index + 1}</td>
@@ -27,7 +28,7 @@ const MyCourseTR = ({course,index}) => {
  {course.Course_price}
   <br />
 </td>
-<td><Link to={`/courseDetails/${course._id}`}><button className='btn btn-primary'>View details</button></Link></td>
+<td><Link to={`/courseDetails/${course.course_id}`}><button className='btn btn-primary'>View details</button></Link></td>
 </tr>
     );
 };

@@ -5,7 +5,15 @@ import { myCoursesPromise } from '../API/applicantAPI';
 
 
 const MyCourses = () => {
-    const {user} = use(AuthContext);
+    const {user, loading} = use(AuthContext);
+
+    if (loading) {
+      return (
+        <div className="min-h-screen flex justify-center items-center">
+          <span className="loading loading-spinner loading-xl text-primary"></span>
+        </div>
+      );
+    }
 
    
 

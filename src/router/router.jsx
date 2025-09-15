@@ -22,7 +22,9 @@ const router = createBrowserRouter([
         },
         {
             path : '/addCourses',
-            Component : AddCourses,
+            element : <PrivateRoute>
+            <AddCourses></AddCourses>
+          </PrivateRoute>,
         },
         {
           path:'/allCourses',

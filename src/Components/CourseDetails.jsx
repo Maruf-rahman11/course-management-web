@@ -3,6 +3,7 @@ import { Link, useLoaderData, useParams } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import axios from 'axios';
 import { myCoursesPromise } from '../API/applicantAPI';
+import { toast } from 'react-toastify';
 
 const CourseDetails = () => {
     const { user } = use(AuthContext)
@@ -11,6 +12,10 @@ const CourseDetails = () => {
     const {id} = useParams()
     const course = useLoaderData()
     const isEnrolled = myCourse.includes(course._id);
+    const notify1 = () => toast.warning("Max Course Enrollment Reached",{
+      autoClose: 2000
+    });
+    console.log(course)
 
 
     useEffect(()=>{
@@ -22,7 +27,7 @@ const CourseDetails = () => {
 
           setMyCourse(coursesId)
           setLoading(false);  
-          console.log(coursesId);
+          console.log(coursesId.length);
       };
     
     
@@ -51,6 +56,10 @@ const CourseDetails = () => {
         console.log(application)
         const remainingSeats =  course.seats - 1;
         console.log(id)
+        if(myCourse.length === 3){
+           notify1()
+           return;
+        }
    
         axios.patch(`http://localhost:5000/courses/${id}`, { seats: remainingSeats })
         .then(res=>{

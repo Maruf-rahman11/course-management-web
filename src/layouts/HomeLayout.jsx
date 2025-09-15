@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import Navbar from '../shared/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../shared/Footer';
-
+import { ToastContainer } from 'react-toastify';
 const HomeLayout = () => {
     return (
         <div>
@@ -13,6 +13,7 @@ const HomeLayout = () => {
               </div>
             }>
                 <Outlet></Outlet>
+                <ToastContainer></ToastContainer>
           </Suspense>
             
          
