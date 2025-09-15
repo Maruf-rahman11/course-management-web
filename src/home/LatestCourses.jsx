@@ -14,7 +14,7 @@ const LatestCourses = () => {
       .then(data => setAllCourses(data))
       .catch(err => console.error(err));
   }, []); 
-
+console.log(allCourses)
 
 
     return (

@@ -6,6 +6,7 @@ import Navbar from '../shared/Navbar';
 import scrollToNavbar from '../shared/utility';
 import { myCoursesPromise } from '../API/applicantAPI';
 import { AuthContext } from '../Contexts/AuthContext';
+import Popular from './Popular';
 
 
 const Home = () => {
@@ -31,6 +32,15 @@ const Home = () => {
             }>
                 <LatestCourses></LatestCourses>
             </Suspense>
+            
+            <Suspense fallback={
+              <div className="min-h-screen flex justify-center items-center">
+                <span className="loading loading-spinner loading-xl text-primary"></span>
+              </div>
+            }>
+                <Popular></Popular>
+            </Suspense>
+
             
         </div>
     );

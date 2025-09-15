@@ -2,6 +2,7 @@ import Lottie from 'lottie-react';
 import React from 'react';
 import add from '../assets/Login.json'
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddCourses = () => {
     const handleAddCourse = (e)=>{
@@ -18,6 +19,15 @@ const AddCourses = () => {
         console.log(allData);
         axios.post('http://localhost:5000/courses',allData)
           .then(res=>{
+            if(res.data.insertedId){
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Your course has been published",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
             console.log(res.data);
           })
           .catch(err=>{
