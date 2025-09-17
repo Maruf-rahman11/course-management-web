@@ -55,28 +55,28 @@ const AddCourses = () => {
                         <div className='my-auto'>
                     <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
                         <label className="label">Course Name</label>
-                        <input type="text" name='courseName' className="input w-full" placeholder="Add course name" />
+                        <input type="text" name='courseName' required className="input w-full" placeholder="Add course name" />
                     </fieldset>
                     <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
                         <label className="label">Description</label>
-                        <input type="text" name='description' className="input w-full" placeholder="Add description" />
+                        <input type="text" name='description' required className="input w-full" placeholder="Add description" />
                     </fieldset>
                     <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
                         <label className="label">Price</label>
-                        <input type="text" name='price' className="input w-full" placeholder="Add price" />
+                        <input type="text" name='price required' className="input w-full" placeholder="Add price" />
                     </fieldset>
                    
                     <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
                         <label className="label">Available Seats</label>
-                        <input type="text" name='seats' className="input w-full" placeholder="Add available seats" />
+                        <input type="text" name='seats' required className="input w-full" placeholder="Add available seats" />
                     </fieldset>
                     <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
                         <label className="label">Duration</label>
-                        <input type="text" name='duration' className="input w-full" placeholder="Add estimated course duration" />
+                        <input type="text" name='duration' required className="input w-full" placeholder="Add estimated course duration" />
                     </fieldset>
                     <fieldset className="fieldset mb-3 bg-[#d4d7f6] border-base-300 rounded-box border p-4">
                         <label className="label">Image URL</label>
-                        <input type="url" name='photoURL' className="input w-full" placeholder="Add photo" />
+                        <input type="url" name='photoURL' required className="input w-full" placeholder="Add photo" />
                     </fieldset>
                     
                    

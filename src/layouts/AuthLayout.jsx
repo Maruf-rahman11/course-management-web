@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../shared/Navbar';
+import { ToastContainer } from 'react-toastify';
 
 const AuthLayout = () => {
     return (
@@ -18,6 +19,7 @@ const AuthLayout = () => {
                             }
                           >
                             <Outlet></Outlet>
+                            <ToastContainer></ToastContainer>
                           </Suspense>
             </main>
         </div>

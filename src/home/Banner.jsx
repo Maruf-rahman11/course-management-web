@@ -10,28 +10,28 @@ const Banner = () => {
           title: "Learn Anytime, Anywhere",
           subtitle: "Access courses from any device and study at your own pace.",
           image:
-            "https://cdn.elearningindustry.com/wp-content/uploads/2019/04/the-importance-of-anytime-anywhere-learning-in-the-modern-workplace-1024x574.jpg",
+            "https://static.vecteezy.com/system/resources/thumbnails/003/031/750/small_2x/dark-blue-wide-background-with-radial-blurred-gradient-vector.jpg",
         },
         {
           id: 2,
           title: "Expert Instructors",
           subtitle: "Gain knowledge from industry professionals and top educators.",
           image:
-            "https://www.shutterstock.com/image-photo/happy-multiraciald-black-female-business-260nw-2007207017.jpg",
+            "https://static.vecteezy.com/system/resources/thumbnails/003/031/750/small_2x/dark-blue-wide-background-with-radial-blurred-gradient-vector.jpg",
         },
         {
           id: 3,
           title: "Track Your Progress",
           subtitle: "Stay motivated with progress tracking and personalized learning.",
           image:
-            "https://www.shortform.com/blog/wp-content/uploads/2021/03/chart-graph-progrss-growth-prediction-future-750x350.jpg",
+            "https://static.vecteezy.com/system/resources/thumbnails/003/031/750/small_2x/dark-blue-wide-background-with-radial-blurred-gradient-vector.jpg",
         },
         {
           id: 4,
           title: "Build Your Career",
           subtitle: "Earn certifications and enhance your career opportunities.",
           image:
-            "https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1500&q=80",
+            "https://static.vecteezy.com/system/resources/thumbnails/003/031/750/small_2x/dark-blue-wide-background-with-radial-blurred-gradient-vector.jpg",
         },
       ];
       

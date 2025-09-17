@@ -6,6 +6,8 @@ import Navbar from '../shared/Navbar';
 import scrollToNavbar from '../shared/utility';
 import { AuthContext } from '../Contexts/AuthContext';
 import Popular from './Popular';
+import Testimonials from './Testimonials';
+import WhyChooseUs from './WhyChooseUs';
 
 
 const Home = () => {
@@ -39,6 +41,8 @@ const Home = () => {
             }>
                 <Popular></Popular>
             </Suspense>
+            <Testimonials></Testimonials>
+            <WhyChooseUs></WhyChooseUs>
 
             
         </div>

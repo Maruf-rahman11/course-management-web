@@ -1,16 +1,21 @@
 import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
 
     const{user, signOutUser , loading } = use(AuthContext)
     // console.log(user)
+     const success = () => toast.success("Logged out Successful",{
+            autoClose: 2000
+          });
 
     const handleSignOut = () =>{
       signOutUser()
       .then(()=>{
         console.log("signed out")
+        success();
       })
       .catch(error=>{
         console.log(error)
@@ -45,6 +50,7 @@ const Navbar = () => {
         <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
         <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My Enrollment</li></NavLink>
         <NavLink to={'/myAddedCourses'}><li className='font-semibold cursor-pointer text-white'>My Courses</li></NavLink>
+        <NavLink to={'/aboutUs'}><li className='font-semibold cursor-pointer text-white'>About US</li></NavLink>
       </ul>
     </div>
     <img className='w-[170px]' src="https://i.ibb.co.com/PvShLZc8/logo.png" alt="" srcset="" />
@@ -56,6 +62,7 @@ const Navbar = () => {
         <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
         <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My Enrollment</li></NavLink>
         <NavLink to={'/myAddedCourses'}><li className='font-semibold cursor-pointer text-white'>My Courses</li></NavLink>
+        <NavLink to={'/aboutUs'}><li className='font-semibold cursor-pointer text-white'>About US</li></NavLink>
     </ul>
   </div>
   <div className="navbar-end flex gap-2">

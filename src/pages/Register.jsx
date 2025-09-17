@@ -1,10 +1,17 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
+import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const { loading,createUser,setUser, updateUser } = use(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 console.log(loading)
+      const failed = () => toast.warning("Insert valid information",{
+        autoClose: 2000
+      });
 
     const handleRegister=(e)=>{
          e.preventDefault();
@@ -21,9 +28,18 @@ console.log(loading)
            .then(result=>{
             const user = result.user
             updateUser({ displayName : name,photoURL : photo, })
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Logged in Successful",
+              showConfirmButton: false,
+              timer: 1500
+            });
             setUser({...user,displayName : name,photoURL : photo })
+            navigate(`${location.state? location.state : "/"}`)
            })
            .catch(error=>{
+            failed();
             console.log(error)
            })
 

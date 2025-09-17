@@ -1,16 +1,37 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
+import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const{signInUser, GoogleSignIn} = use(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location)
+
+      const failed = () => toast.warning("Insert valid information",{
+        autoClose: 2000
+      });
     const handleGoogleSignIn = () =>{
         GoogleSignIn()
         .then(result=>{
+         
+Swal.fire({
+  position: "center",
+  icon: "success",
+  title: "Logged in Successful",
+  showConfirmButton: false,
+  timer: 1500
+});
+            navigate(`${location.state? location.state : "/"}`)
             console.log(result)
+            console.log(location)
+            
         })
         .catch(error=>{
             console.log(error)
+            failed();
         })
 
     }
@@ -22,9 +43,19 @@ const Login = () => {
 
         signInUser(email,password)
         .then(result=>{
-            console.log(result)
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Logged in Successful",
+                showConfirmButton: false,
+                timer: 1500
+              });
+            navigate(`${location.state? location.state : "/"}`)
+            console.log(result ,location.state)
+            
         })
         .catch((error) => {
+            failed();
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode,errorMessage)
