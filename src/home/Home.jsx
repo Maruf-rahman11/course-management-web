@@ -4,14 +4,13 @@ import LatestCourses from './LatestCourses';
 import { ChevronUp, MoveUp } from 'lucide-react';
 import Navbar from '../shared/Navbar';
 import scrollToNavbar from '../shared/utility';
-import { myCoursesPromise } from '../API/applicantAPI';
 import { AuthContext } from '../Contexts/AuthContext';
 import Popular from './Popular';
 
 
 const Home = () => {
-    const {user,loading} = use(AuthContext)
-    console.log(user)
+    const {loading} = use(AuthContext)
+ 
     if (loading) {
         return (
           <div className="min-h-screen flex justify-center items-center">

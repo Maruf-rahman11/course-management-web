@@ -6,7 +6,7 @@ import { AuthContext } from '../Contexts/AuthContext';
 const AllCourses = () => {
   const {loading} = use(AuthContext)
     const allCourses = useLoaderData();
-    console.log(allCourses)
+    
     if(loading){
       return <div className='min-h-screen flex justify-center items-center'>
           <span className="loading loading-spinner loading-xl"></span>

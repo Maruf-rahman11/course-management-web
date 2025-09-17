@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const MyCourseTR = ({course,index}) => {
-  console.log(course.course_id)
+const MyCourseTR = ({course,index,handleDelete}) => {
+  
     return (
         <tr className=''>
         <td>{index + 1}</td>
@@ -28,7 +28,12 @@ const MyCourseTR = ({course,index}) => {
  {course.Course_price}
   <br />
 </td>
-<td><Link to={`/courseDetails/${course.course_id}`}><button className='btn btn-primary'>View details</button></Link></td>
+<td>
+  <div className='flex gap-3'>
+  <Link to={`/courseDetails/${course.course_id}`}><button className='btn btn-primary'>View details</button></Link>
+  <button onClick={()=>handleDelete(course.course_id)} className='btn btn-error'>Delete Course</button>
+  </div>
+</td>
 </tr>
     );
 };

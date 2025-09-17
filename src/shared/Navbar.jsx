@@ -4,7 +4,7 @@ import { AuthContext } from '../Contexts/AuthContext';
 
 const Navbar = () => {
 
-    const{user, signOutUser} = use(AuthContext)
+    const{user, signOutUser , loading } = use(AuthContext)
     // console.log(user)
 
     const handleSignOut = () =>{
@@ -17,8 +17,13 @@ const Navbar = () => {
       })
     }
 
+    if(loading){
+      return <div className='min-h-screen flex justify-center items-center'>
+          <span className="loading loading-spinner loading-xl"></span>
+          </div>
+  }
+  
     
-
 
 
 
@@ -26,6 +31,7 @@ const Navbar = () => {
     return (
     <div>
       <div id="navbar" className="navbar  top-0 left-0 z-50  bg-[#4e5dfe] shadow-sm">
+       
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,7 +43,8 @@ const Navbar = () => {
           <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
         <NavLink to={'/allCourses'}><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
         <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
-        <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My courses</li></NavLink>
+        <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My Enrollment</li></NavLink>
+        <NavLink to={'/myAddedCourses'}><li className='font-semibold cursor-pointer text-white'>My Courses</li></NavLink>
       </ul>
     </div>
     <img className='w-[170px]' src="https://i.ibb.co.com/PvShLZc8/logo.png" alt="" srcset="" />
@@ -47,14 +54,15 @@ const Navbar = () => {
         <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
         <NavLink to={'/allCourses'}><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
         <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
-        <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My courses</li></NavLink>
+        <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My Enrollment</li></NavLink>
+        <NavLink to={'/myAddedCourses'}><li className='font-semibold cursor-pointer text-white'>My Courses</li></NavLink>
     </ul>
   </div>
   <div className="navbar-end flex gap-2">
     {
       user ? 
       <div className='flex gap-2'>
-        <img  className='w-[40px] rounded-full' src={user.photoURL} alt="" srcset="" />
+        <img  className='w-[40px] bg-white rounded-full' src={user.photoURL} alt="" srcset="" />
         <Link><button onClick={handleSignOut} className="btn">Sign out</button></Link>
       </div>
       

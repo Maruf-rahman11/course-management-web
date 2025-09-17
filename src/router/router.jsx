@@ -10,6 +10,8 @@ import AllCourses from '../Components/AllCourses';
 import CourseDetails from '../Components/CourseDetails';
 import MyCourses from '../Components/MyCourses';
 import PrivateRoute from '../Contexts/PrivateRoute';
+import MyAddedCourses from '../Components/my added courses/MyaddedCourses';
+import UpdateMyCourse from '../Components/my added courses/UpdateMyCourse';
 
 const router = createBrowserRouter([
     {
@@ -41,6 +43,15 @@ const router = createBrowserRouter([
           element:<PrivateRoute>
             <MyCourses></MyCourses>
           </PrivateRoute> ,
+        },
+        {
+          path: '/myAddedCourses',
+          element :<PrivateRoute><MyAddedCourses></MyAddedCourses></PrivateRoute>
+        },
+        {
+          path : '/UpdateCourse/:id',
+          element : <PrivateRoute><UpdateMyCourse></UpdateMyCourse></PrivateRoute>,
+          loader : ({params})=>fetch(`http://localhost:5000/courses/${params.id}`)
         }
       ]
     },

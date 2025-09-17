@@ -4,6 +4,7 @@ import { AuthContext } from '../Contexts/AuthContext';
 import axios from 'axios';
 import { myCoursesPromise } from '../API/applicantAPI';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const CourseDetails = () => {
     const { user } = use(AuthContext)
@@ -22,12 +23,12 @@ const CourseDetails = () => {
       if (!user?.email) return;
       const fetchMyCourses = async () => {
       
-          const allData = await myCoursesPromise(user.email)
+          const allData = await myCoursesPromise(user.email,user.accessToken)
           const coursesId = allData.map(course => course.course_id);
 
           setMyCourse(coursesId)
           setLoading(false);  
-          console.log(coursesId.length);
+         
       };
     
     
@@ -53,9 +54,9 @@ const CourseDetails = () => {
             applicant : user.email,
             applicantPhoto : user.photoURL
         }
-        console.log(application)
+       
         const remainingSeats =  course.seats - 1;
-        console.log(id)
+      
         if(myCourse.length === 3){
            notify1()
            return;
@@ -71,6 +72,13 @@ const CourseDetails = () => {
         axios.post('http://localhost:5000/applicants', application)
         .then(res=>{
           setMyCourse(prev => [...prev, course._id])
+          Swal.fire({
+                              position: "center",
+                              icon: "success",
+                              title: "Enrollment Successful",
+                              showConfirmButton: false,
+                              timer: 1500
+                            });
 
           console.log(res.data);
         })

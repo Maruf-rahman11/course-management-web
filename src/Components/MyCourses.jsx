@@ -4,18 +4,9 @@ import MyCourseList from './MyCourseList';
 import { myCoursesPromise } from '../API/applicantAPI';
 
 
+
 const MyCourses = () => {
-    const {user, loading} = use(AuthContext);
-
-    if (loading) {
-      return (
-        <div className="min-h-screen flex justify-center items-center">
-          <span className="loading loading-spinner loading-xl text-primary"></span>
-        </div>
-      );
-    }
-
-   
+    const {user} = use(AuthContext);
 
     return (
         <div> 
@@ -24,7 +15,7 @@ const MyCourses = () => {
                 <span className="loading loading-spinner loading-xl text-primary"></span>
               </div>
             }>
-                <MyCourseList myCoursesPromise={myCoursesPromise(user.email)}  ></MyCourseList>
+                <MyCourseList myCoursesPromise={myCoursesPromise(user.email,user.accessToken)}  ></MyCourseList>
             </Suspense>
              
         </div>
