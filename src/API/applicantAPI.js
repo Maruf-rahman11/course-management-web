@@ -1,5 +1,5 @@
 export const myCoursesPromise =(email,accessToken)=>{
-   return fetch(`http://localhost:5000/applicants?email=${email}`,{
+   return fetch(`https://studynext-web-server.vercel.app/applicants?email=${email}`,{
       headers:{
          authorization: `Bearer ${accessToken}`
       }

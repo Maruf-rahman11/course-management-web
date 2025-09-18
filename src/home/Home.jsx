@@ -8,6 +8,7 @@ import { AuthContext } from '../Contexts/AuthContext';
 import Popular from './Popular';
 import Testimonials from './Testimonials';
 import WhyChooseUs from './WhyChooseUs';
+import { Helmet } from 'react-helmet';
 
 
 const Home = () => {
@@ -24,6 +25,10 @@ const Home = () => {
  
     return (
         <div className='mx-auto relative w-9/10 mt-25'>
+             <Helmet>
+                                 <title>StudyNest | Home</title>
+                             </Helmet>
+    
             <button onClick={scrollToNavbar} className='fixed bottom-20 hover:text-white cursor-pointer rounded-full right-20 z-50 bg-[#4e5dfe]' ><ChevronUp size={48} strokeWidth={2.25} /></button>
             <Banner></Banner>
             <Suspense fallback={

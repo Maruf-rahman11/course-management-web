@@ -33,7 +33,7 @@ if(loading){
           confirmButtonText: "Yes, delete it!"
         }).then((result) => {
           if (result.isConfirmed) {
-            axios.delete(`http://localhost:5000/courses/${id}`)
+            axios.delete(`https://studynext-web-server.vercel.app/courses/${id}`)
                   .then(res => {
                     if (res.data.deletedCount) {
                      

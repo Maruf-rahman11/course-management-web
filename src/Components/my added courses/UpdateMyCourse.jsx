@@ -16,7 +16,7 @@ const UpdateMyCourse = () => {
         console.log(updatedCourse);
 
         // send updated coffee to the db
-        axios.put(`http://localhost:5000/courses/${myCourse._id}`, updatedCourse)
+        axios.put(`https://studynext-web-server.vercel.app/courses/${myCourse._id}`, updatedCourse)
         .then(res=>{
           console.log(res)
           if(res.data.modifiedCount){

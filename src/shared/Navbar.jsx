@@ -44,7 +44,7 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-[#4e5dfe] rounded-box z-1 mt-3 w-52 p-2 shadow">
           <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
         <NavLink to={'/allCourses'}><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
         <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>

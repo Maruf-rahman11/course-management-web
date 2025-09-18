@@ -5,6 +5,7 @@ import { AuthContext } from '../Contexts/AuthContext';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
+
 const MyCourseList = ({myCoursesPromise}) => {
  
     const initialMyCourses = use(myCoursesPromise)
@@ -34,7 +35,7 @@ const MyCourseList = ({myCoursesPromise}) => {
           }).then((result) => {
            
             if (result.isConfirmed) {
-              axios.delete(`http://localhost:5000/applicants/${id}`, {
+              axios.delete(`https://studynext-web-server.vercel.app/applicants/${id}`, {
                 headers: {
                   authorization: `Bearer ${user.accessToken}`
                 }
@@ -62,6 +63,7 @@ const MyCourseList = ({myCoursesPromise}) => {
 
     return (
         <div>
+       
             <div className='mt-20 mb-20'>
           <div>
         {

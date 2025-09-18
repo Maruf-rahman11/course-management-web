@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import app from '../firebase/firebase.init';
 import { myCoursesPromise } from '../API/applicantAPI';
 
@@ -9,7 +9,8 @@ const AuthProvider = ({children}) => {
     const[loading,setLoading]= useState(true);
     const [user,setUser] = useState(null);
     const auth =  getAuth(app)
-    const provider = new GoogleAuthProvider;
+    const provider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
      const fetchMyCourses = async () => {
          
@@ -20,6 +21,10 @@ const AuthProvider = ({children}) => {
 
     const GoogleSignIn = ()=>{
         return signInWithPopup(auth,provider)
+       
+    }
+    const GithubSignIn = ()=>{
+        return signInWithPopup(auth,githubProvider)
        
     }
     
@@ -66,6 +71,7 @@ const AuthProvider = ({children}) => {
         updateUser,
         GoogleSignIn,
         fetchMyCourses,
+        GithubSignIn
     }
     return (
 <AuthContext.Provider  value={authInfo}>

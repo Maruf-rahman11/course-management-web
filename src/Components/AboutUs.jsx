@@ -1,8 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const AboutUs = () => {
   return (
+    
     <div className="bg-gradient-to-r from-blue-50 via-white to-blue-50 min-h-screen py-20 px-6 lg:px-32">
+         <Helmet>
+                <title>StudyNest | About Us</title>
+            </Helmet>
       <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-2xl p-10">
         <h1 className="text-4xl font-bold text-center text-blue-800 mb-6">
           About StudyNest

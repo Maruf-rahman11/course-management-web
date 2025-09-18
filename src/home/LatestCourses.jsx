@@ -9,7 +9,7 @@ const LatestCourses = () => {
  
 
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://studynext-web-server.vercel.app/courses")
       .then(res => res.json())
       .then(data => setAllCourses(data))
       .catch(err => console.error(err));

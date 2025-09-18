@@ -32,12 +32,12 @@ const router = createBrowserRouter([
         {
           path:'/allCourses',
           Component: AllCourses,
-          loader: ()=>fetch("http://localhost:5000/courses"),
+          loader: ()=>fetch("https://studynext-web-server.vercel.app/courses"),
         },
         {
           path: '/courseDetails/:id',
           element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
-          loader : ({params})=>fetch(`http://localhost:5000/courses/${params.id}`)
+          loader : ({params})=>fetch(`https://studynext-web-server.vercel.app/courses/${params.id}`)
         },
         {
           path : '/myCourses',
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         {
           path : '/UpdateCourse/:id',
           element : <PrivateRoute><UpdateMyCourse></UpdateMyCourse></PrivateRoute>,
-          loader : ({params})=>fetch(`http://localhost:5000/courses/${params.id}`)
+          loader : ({params})=>fetch(`https://studynext-web-server.vercel.app/courses/${params.id}`)
         },
         {
           path: '/aboutUs',

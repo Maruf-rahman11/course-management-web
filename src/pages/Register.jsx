@@ -1,11 +1,14 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const { loading,createUser,setUser, updateUser } = use(AuthContext)
+    const[passError, setPassError] = useState('')
+    const[nameError,setNameError ] =useState('')
     const location = useLocation()
     const navigate = useNavigate()
 console.log(loading)
@@ -21,9 +24,16 @@ console.log(loading)
          const email = form.email.value
          const password = form.password.value
          if(name.length < 3){
-            'Name should be more than 5 characters '
-            return;
+          setNameError('Name should be more than 5 characters ')
+          return;
            }
+
+           const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    
+            if (!passwordRegex.test(password)) {
+              setPassError("Password must contain at least 6 characters, 1 uppercase letter, 1 lowercase letter,1 number, 1 special character");
+               return;
+      }
            createUser(email,password)
            .then(result=>{
             const user = result.user
@@ -46,6 +56,9 @@ console.log(loading)
     }
     return (
         <div>
+          <Helmet>
+                       <title>StudyNest | Register</title>
+                   </Helmet>
               <div className='mx-auto'>
           {/* <ToastContainer></ToastContainer> */}
             <p className='text-3xl font-semibold mb-6 text-center' >Create your account</p>
@@ -54,7 +67,7 @@ console.log(loading)
         <fieldset class="fieldset">
           <label class="label">Username</label>
           <input name='name' type="text" class="input" required placeholder="Username" />
-          {/* {nameError && <p className='text-red-600'>{nameError}</p>} */}
+          {nameError && <p className='text-red-600'>{nameError}</p>}
 
           <label class="label">Photo URL</label>
           <input name='photo' type="text" class="input" required placeholder="Photo link" />
@@ -64,7 +77,7 @@ console.log(loading)
 
           <label class="label">Password</label>
           <input name='password' type="password" class="input" required placeholder="Password" />
-          {/* {passError && <p className='text-red-600'>{passError}</p>} */}
+          {passError && <p className='text-red-600'>{passError}</p>}
 
           <button type='submit' class="btn btn-neutral mt-4">Sign Up</button>
           <p className='my-3 text-center' >Already have an account?<Link to={'/auth/login'}><span className='text-blue-600'>Log In</span></Link></p>

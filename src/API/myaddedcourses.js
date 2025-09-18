@@ -1,5 +1,5 @@
 export const myAddedCourses =(email,accessToken)=>{
-    return fetch(`http://localhost:5000/courses?email=${email}`,{
+    return fetch(`https://studynext-web-server.vercel.app/courses?email=${email}`,{
        headers:{
           authorization: `Bearer ${accessToken}`
        }

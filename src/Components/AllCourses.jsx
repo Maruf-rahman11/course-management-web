@@ -2,9 +2,10 @@ import React, { use } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import CourseCard from './CourseCard';
 import { AuthContext } from '../Contexts/AuthContext';
+import { Helmet } from 'react-helmet';
 
 const AllCourses = () => {
-  const {loading} = use(AuthContext)
+  const {loading,user} = use(AuthContext)
     const allCourses = useLoaderData();
     
     if(loading){
@@ -12,8 +13,12 @@ const AllCourses = () => {
           <span className="loading loading-spinner loading-xl"></span>
           </div>
   }
+  console.log(user)
     return (
         <div className='mt-20 mb-20'>
+           <Helmet>
+                <title>StudyNest | All Courses</title>
+            </Helmet>
           <div>
         {
             allCourses.length > 0 ?

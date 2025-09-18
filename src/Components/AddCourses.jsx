@@ -4,9 +4,11 @@ import add from '../assets/Login.json'
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Contexts/AuthContext';
+import { Helmet } from 'react-helmet';
 
 const AddCourses = () => {
     const {user} = use(AuthContext);
+    console.log(user)
 
     const handleAddCourse = (e)=>{
         e.preventDefault();
@@ -23,7 +25,7 @@ const AddCourses = () => {
 
         }
         console.log(allData);
-        axios.post('http://localhost:5000/courses',allData)
+        axios.post('https://studynext-web-server.vercel.app/courses',allData)
           .then(res=>{
             if(res.data.insertedId){
                 Swal.fire({
@@ -45,6 +47,9 @@ const AddCourses = () => {
     }
     return (
         <div>
+             <Helmet>
+                <title>StudyNest | Add Course</title>
+            </Helmet>
              <div className='mt-20 mb-20 p-4 mx-auto w-11/12 '>
             <div className='lg:p-12 p-4 text-center space-y-4'>
                 <h1 className="lg:text-6xl pb-3 text-4xl">Add Your Course</h1>

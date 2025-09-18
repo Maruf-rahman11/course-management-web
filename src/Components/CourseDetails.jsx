@@ -62,14 +62,14 @@ const CourseDetails = () => {
            return;
         }
    
-        axios.patch(`http://localhost:5000/courses/${id}`, { seats: remainingSeats })
+        axios.patch(`https://studynext-web-server.vercel.app/courses/${id}`, { seats: remainingSeats })
         .then(res=>{
           console.log(res)
         })
         .catch(err=>{
           console.log(err)
         })
-        axios.post('http://localhost:5000/applicants', application)
+        axios.post('https://studynext-web-server.vercel.app/applicants', application)
         .then(res=>{
           setMyCourse(prev => [...prev, course._id])
           Swal.fire({

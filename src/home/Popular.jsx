@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Popular = () => {
     const [allCourses, setAllCourses ] = useState([]);
       useEffect(() => {
-        fetch("http://localhost:5000/courses")
+        fetch("https://studynext-web-server.vercel.app/courses")
           .then(res => res.json())
           .then(data =>{ 
             const sortedCourse = [...data].sort((a,b)=> a.seats -b.seats)
