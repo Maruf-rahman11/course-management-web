@@ -13,6 +13,9 @@ import PrivateRoute from '../Contexts/PrivateRoute';
 import MyAddedCourses from '../Components/my added courses/MyaddedCourses';
 import UpdateMyCourse from '../Components/my added courses/UpdateMyCourse';
 import AboutUs from '../Components/AboutUs';
+import ErrorPage from '../shared/ErrorPage';
+import Membership from '../Payment/Membership';
+import Payment from '../Payment/Payment';
 
 const router = createBrowserRouter([
     {
@@ -55,9 +58,18 @@ const router = createBrowserRouter([
           loader : ({params})=>fetch(`https://studynext-web-server.vercel.app/courses/${params.id}`)
         },
         {
+          path : '/membership',
+          element : <PrivateRoute><Membership></Membership></PrivateRoute>   
+        },
+        {
+          path : '/payment',
+          element : <PrivateRoute><Payment></Payment></PrivateRoute>   
+        },
+        {
           path: '/aboutUs',
           Component: AboutUs
         }
+
       ]
     },
     {
@@ -74,6 +86,10 @@ const router = createBrowserRouter([
           Component : Login,
         }
     ]
+    },
+    {
+      path : '*',
+      Component : ErrorPage,
     }
   ]);
 export default router;

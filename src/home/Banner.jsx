@@ -10,28 +10,28 @@ const Banner = () => {
           title: "Learn Anytime, Anywhere",
           subtitle: "Access courses from any device and study at your own pace.",
           image:
-            "https://static.vecteezy.com/system/resources/thumbnails/003/031/750/small_2x/dark-blue-wide-background-with-radial-blurred-gradient-vector.jpg",
+            "https://cdn.prod.website-files.com/653ff772c8cabb196596168a/6762c5dd4402f4eefb966ccd_training-hero_bg.webp",
         },
         {
           id: 2,
           title: "Expert Instructors",
           subtitle: "Gain knowledge from industry professionals and top educators.",
           image:
-            "https://static.vecteezy.com/system/resources/thumbnails/003/031/750/small_2x/dark-blue-wide-background-with-radial-blurred-gradient-vector.jpg",
+            "https://cdn.prod.website-files.com/653ff772c8cabb196596168a/6762c5dd4402f4eefb966ccd_training-hero_bg.webp",
         },
         {
           id: 3,
           title: "Track Your Progress",
           subtitle: "Stay motivated with progress tracking and personalized learning.",
           image:
-            "https://static.vecteezy.com/system/resources/thumbnails/003/031/750/small_2x/dark-blue-wide-background-with-radial-blurred-gradient-vector.jpg",
+            "https://cdn.prod.website-files.com/653ff772c8cabb196596168a/6762c5dd4402f4eefb966ccd_training-hero_bg.webp",
         },
         {
           id: 4,
           title: "Build Your Career",
           subtitle: "Earn certifications and enhance your career opportunities.",
           image:
-            "https://static.vecteezy.com/system/resources/thumbnails/003/031/750/small_2x/dark-blue-wide-background-with-radial-blurred-gradient-vector.jpg",
+            "https://cdn.prod.website-files.com/653ff772c8cabb196596168a/6762c5dd4402f4eefb966ccd_training-hero_bg.webp",
         },
       ];
       

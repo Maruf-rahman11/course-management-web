@@ -9,6 +9,7 @@ import Popular from './Popular';
 import Testimonials from './Testimonials';
 import WhyChooseUs from './WhyChooseUs';
 import { Helmet } from 'react-helmet';
+import TopRatedCourses from './TopRatedCourses';
 
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
     
  
     return (
-        <div className='mx-auto relative w-9/10 mt-25'>
+        <div id='section' className='mx-auto relative w-9/10 mt-25'>
              <Helmet>
                                  <title>StudyNest | Home</title>
                              </Helmet>
@@ -45,6 +46,7 @@ const Home = () => {
               </div>
             }>
                 <Popular></Popular>
+                <TopRatedCourses></TopRatedCourses>
             </Suspense>
             <Testimonials></Testimonials>
             <WhyChooseUs></WhyChooseUs>

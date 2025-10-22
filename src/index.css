@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default;
+  themes: light --default, dark;
 }
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";

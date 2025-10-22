@@ -81,7 +81,8 @@ const MyCourseList = ({myCoursesPromise}) => {
                 <th>Course Name</th>
                 <th>Duration</th>
                 <th>Course Fee </th>
-                <th>Added time </th>
+                <th>Actions</th>
+                
                
               </tr>
             </thead>

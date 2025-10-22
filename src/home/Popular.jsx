@@ -32,7 +32,7 @@ const Popular = () => {
              <p>{course.description}</p>
              <p>Remaining seats : {course.seats}</p>
              <div className="card-actions justify-end">
-              <Link to={`/courseDetails/${course._id}`}><button className="btn btn-primary">Course Details</button></Link> 
+              <Link to={`/courseDetails/${course._id}`}><button className="btn text-white bg-[#4e5dfe]">Course Details</button></Link> 
              </div>
            </div>
          </div>)

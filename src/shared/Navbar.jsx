@@ -2,6 +2,8 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
+import ThemeToggle from './ThemeToggle';
+
 
 const Navbar = () => {
 
@@ -35,7 +37,7 @@ const Navbar = () => {
 
     return (
     <div>
-      <div id="navbar" className="navbar  top-0 left-0 z-50  bg-[#4e5dfe] shadow-sm">
+      <div id="navbar" className="navbar  fixed top-0 left-0 w-full z-50 shadow-md bg-gradient-to-r from-blue-500 to-indigo-600">
        
   <div className="navbar-start">
     <div className="dropdown">
@@ -47,25 +49,28 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content bg-[#4e5dfe] rounded-box z-1 mt-3 w-52 p-2 shadow">
           <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
         <NavLink to={'/allCourses'}><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
-        <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
-        <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My Enrollment</li></NavLink>
-        <NavLink to={'/myAddedCourses'}><li className='font-semibold cursor-pointer text-white'>My Courses</li></NavLink>
+        {user && <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>}
+        {user && <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My Enrollment</li></NavLink>}
+        {user && <NavLink to={'/myAddedCourses'}><li className='font-semibold cursor-pointer text-white'>My Courses</li></NavLink>}
+        {user && <NavLink to={'/membership'}><li className='font-semibold cursor-pointer text-white'>Membership</li></NavLink>}
         <NavLink to={'/aboutUs'}><li className='font-semibold cursor-pointer text-white'>About US</li></NavLink>
       </ul>
     </div>
-    <img className='w-[170px]' src="https://i.ibb.co.com/PvShLZc8/logo.png" alt="" srcset="" />
+    <img className='w-[170px] hidden lg:flex' src="https://i.ibb.co.com/PvShLZc8/logo.png" alt="" srcset="" />
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu gap-4 menu-horizontal px-1">
         <NavLink to={'/'}><li className='font-semibold cursor-pointer text-white'>Home</li></NavLink>
         <NavLink to={'/allCourses'}><li className='font-semibold cursor-pointer text-white'>Courses</li></NavLink> 
-        <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>
-        <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My Enrollment</li></NavLink>
-        <NavLink to={'/myAddedCourses'}><li className='font-semibold cursor-pointer text-white'>My Courses</li></NavLink>
+       {user && <NavLink to={'/addCourses'}><li className='font-semibold cursor-pointer text-white'>Add courses</li></NavLink>}
+        {user && <NavLink to={'/myCourses'}><li className='font-semibold cursor-pointer text-white'>My Enrollment</li></NavLink>}
+        {user && <NavLink to={'/myAddedCourses'}><li className='font-semibold cursor-pointer text-white'>My Courses</li></NavLink>}
+        {user && <NavLink to={'/membership'}><li className='font-semibold cursor-pointer text-white'>Membership</li></NavLink>}
         <NavLink to={'/aboutUs'}><li className='font-semibold cursor-pointer text-white'>About US</li></NavLink>
     </ul>
   </div>
   <div className="navbar-end flex gap-2">
+    <ThemeToggle></ThemeToggle>
     {
       user ? 
       <div className='flex gap-2'>
