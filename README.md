@@ -14,7 +14,7 @@ StudyNest is a discussion-driven web application where users can create posts, e
 
 > Add a clean screenshot in `/public/screenshots/homepage.png` or paste an image link here.
 
-![StudyNest - Home (placeholder)](/public/screenshots/homepage.png)
+![StudyNest - Home (placeholder)](https://i.ibb.co.com/xSSWqxNP/Screenshot-222.png)
 
 ---
 
