@@ -1,12 +1,12 @@
 # StudyNest
 
-**A community-driven platform for sharing and discussing topics in Education, Health, and Politics.**
+**A platform where people can post and enroll into various learning courses.**
 
 ---
 
 ## Project overview
 
-StudyNest is a discussion-driven web application where users can create posts, engage with others, and discover content across three main verticals: **Education**, **Health**, and **Politics**. The platform includes user memberships (Bronze and Gold), course listings, ratings, and a lightweight live chat for quick support.
+StudyNest a modern learning platform where users can post, explore, and enroll in courses across various fields. Learners can rate courses with stars, while elite members enjoy exclusive early access to premium content through secure Stripe payments.
 
 ---
 
@@ -23,14 +23,14 @@ StudyNest is a discussion-driven web application where users can create posts, e
 
 ## Core features
 
-* Create, read, and view posts across categories (Education, Health, Politics)
+
 * User accounts and authentication (AuthContext)
 * Membership plans: **Bronze** (default, limited posts) and **Gold** (more privileges)
 * Stripe-based payment flow to upgrade members to Gold
 * Course listings with sortable table (Price, Latest, Duration)
 * Rating system for courses (1–5 stars) with modal UI
 * Top-rated courses table
-* Recent posts, Popular posts, and Top-rated sections
+* Recent courses, Popular courses, and Top-rated courses
 * Responsive design with light/dark mode (DaisyUI themes)
 * Live chat widget with automated reply
 * Error/404 page and friendly UX
