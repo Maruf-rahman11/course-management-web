@@ -23,16 +23,16 @@ const testimonials = [
 
 const Testimonials = () => {
     return (
-        <section className="bg-gray-100 my-20 mx-auto py-20">
+        <section className=" bg-base-300 my-20 mx-auto py-20">
             <div className="max-w-6xl mx-auto px-6 text-center">
                 <h2 className="text-4xl font-bold mb-12">What Our Users Say</h2>
                 <div className="grid md:grid-cols-3 gap-8">
                     {testimonials.map((testimonial, index) => (
-                        <div key={index} className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300">
+                        <div key={index} className="bg-base-100 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300">
                             <img className="w-16 h-16 rounded-full mx-auto mb-4" src={testimonial.image} alt={testimonial.name} />
                             <h3 className="text-xl font-semibold">{testimonial.name}</h3>
-                            <p className="text-gray-600 mb-2">{testimonial.course}</p>
-                            <p className="text-gray-700">{testimonial.review}</p>
+                            <p className="text-base-content mb-2">{testimonial.course}</p>
+                            <p className="text-base-content">{testimonial.review}</p>
                         </div>
                     ))}
                 </div>

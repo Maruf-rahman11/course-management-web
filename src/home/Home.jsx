@@ -15,7 +15,7 @@ import HomeChat from './HomeChat';
 
 
 const Home = () => {
-    const {loading} = use(AuthContext)
+    const {loading, user} = use(AuthContext)
  
     if (loading) {
         return (
@@ -33,7 +33,7 @@ const Home = () => {
                              </Helmet>
     
             <button onClick={scrollToNavbar} className='fixed bottom-20 hover:text-white cursor-pointer rounded-full right-20 z-50 bg-[#4e5dfe]' ><ChevronUp size={48} strokeWidth={2.25} /></button>
-            <button className='fixed bottom-20 hover:text-white cursor-pointer rounded left-20 z-50 bg-[#4e5dfe]' > <HomeChat></HomeChat></button>
+            {user && <button className='fixed bottom-20 hover:text-white cursor-pointer rounded left-20 z-50 bg-[#4e5dfe]' > <HomeChat></HomeChat></button>}
             <Banner></Banner>
             <Suspense fallback={
               <div className="min-h-screen flex justify-center items-center">
